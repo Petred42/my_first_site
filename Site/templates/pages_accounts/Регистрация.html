@@ -1,0 +1,28 @@
+{% extends "pages/base.html" %}
+{%load static%}
+
+{% block title %}
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'Регистрация_события.css'%}" media="screen">
+{% endblock title%}
+
+{% block metacontent %} <meta property="og:title" content="Регистрация"> {% endblock metacontent%}
+
+{% block body %}
+    <div class = "login">
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    <h1>Введите свои данные регистрации</h1>
+    <form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    <tr>
+    <td></td>
+    <td><input class="u-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-70 u-radius-50 u-btn-1" type="submit" name="submit" value="Зарегистрироваться" /></td>
+    </tr>
+    </table>
+    </form>
+    </div>
+{% endblock body %}
+

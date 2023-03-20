@@ -1,0 +1,39 @@
+{% extends "pages/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    <title>Добавить Статью</title>
+    <link rel="stylesheet" href="{% static 'nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'Регистрация_события.css'%}" media="screen">
+{% endblock title%}
+
+{% block scriptcontent %}
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/default-logo.png"
+}</script>
+{% endblock scriptcontent%}
+
+{% block metacontent %} <meta property="og:title" content="Добавить Статью"> {% endblock metacontent%}
+
+{% block body %} <section class="u-align-center u-clearfix u-section-1" id="sec-cd1e">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">Введите данные Статьи</h2>
+        <div class="u-form u-form-1">
+          <form method="POST" enctype="multipart/form-data">
+              <div class="form-error">{{ form.non_field_errors }}</div>
+              <fieldset class="form-group">
+            {% csrf_token %}
+            {{ form|crispy }}
+              </fieldset>
+              <div class="form-group">
+          	<button class="u-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-70 u-radius-50 btn-outline-info" type="submit">Добавить</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </section>
+{% endblock body %}

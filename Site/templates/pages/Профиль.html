@@ -1,0 +1,37 @@
+{% extends "pages/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    <title>Профиль</title>
+    <link rel="stylesheet" href="{% static 'nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'Профиль.css'%}" media="screen">
+{% endblock title%}
+
+{% block scriptcontent %}
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+{% endblock scriptcontent%}
+
+{% block metacontent %} <meta property="og:title" content="Профиль"> {% endblock metacontent%}
+
+{% block body %} <section class="u-clearfix u-section-1" id="sec-b4b9">
+      <div class="u-clearfix u-sheet u-sheet-1">
+          <a href="{% url 'edit_profile' %}" class="u-border-none u-btn u-btn-round u-button-style u-grey-90 u-hover-grey-70 u-radius-50 u-btn-1">Редактировать профиль</a>
+          <h1 class="u-text u-text-default u-text-4">{{ user.username }}<br></h1>
+        <img class="u-image u-image-circle u-image-1" src="{{ user.student.image.url }}" alt="" data-image-width="1920" data-image-height="1080">
+          <span class="u-icon u-icon-circle u-icon-1"></span>
+        <h2 class="u-text u-text-default u-text-1"> {{ user.student.name }} </h2>
+        <h5 class="u-text u-text-default u-text-2">Контактная информация:
+            <p>Телефон: {{ user.student.phone }}</p>
+          <p>E-mail: {{ user.email }}</p>
+            </h5>
+        <h5 class="u-text u-text-default u-text-3">О себе:
+        <p> {{ user.student.about }}</p></h5>
+
+      </div>
+    </section>
+{% endblock body %}

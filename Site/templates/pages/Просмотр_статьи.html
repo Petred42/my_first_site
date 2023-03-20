@@ -1,0 +1,27 @@
+{% extends "pages/base.html" %}
+{%load static%}
+
+{% block title %}
+    <title>{{ article.title }}</title>
+    <link rel="stylesheet" href="{% static 'nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'Просмотр_статьи.css' %}" media="screen">
+
+{% endblock title%}
+
+{% block metacontent %} <meta property="og:title" content="Просмотр_статьи"> {% endblock metacontent%}
+
+{% block body %}
+    <section class="u-clearfix u-section-1" id="sec-7e38">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-left u-text u-text-default u-text-4">{{ article.title }}</h2>
+        <a href="edit" class="u-black u-border-none u-btn u-btn-round u-button-style u-hover-grey-70 u-radius-50 u-btn-1">Изменить<br>информацию о статье
+        </a>
+        <h6 class="u-text u-text-default u-text-2">Учреждение: {{ article.school }}</h6>
+        <h6 class="u-text u-text-default u-text-3">Дата публикации: {{ article.date }}</h6>
+        <a href="download" class="u-black u-border-none u-btn u-btn-round u-button-style u-hover-grey-70 u-radius-50 u-btn-2">Скачать</a>
+        <p class="u-large-text u-text u-text-default u-text-variant u-text-4">
+            {{ article.about }}
+        </p>
+      </div>
+    </section>
+{% endblock body %}

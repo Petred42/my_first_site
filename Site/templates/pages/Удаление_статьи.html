@@ -1,0 +1,26 @@
+{% extends "pages/base.html" %}
+{%load static%}
+
+{% block title %}
+    <title>Удаление статьи</title>
+
+    <link rel="stylesheet" href="{% static 'nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'Мои_статьи.css'%}" media="screen">
+<!--    <link rel="stylesheet" href="{% static 'Регистрация.css'%}" media="screen">
+-->
+{% endblock title%}
+
+{% block metacontent %} <meta property="og:title" content="Удаление статьи"> {% endblock metacontent%}
+
+{% block body %}
+<h3 class="u-text u-text-default u-text-1">Вы уверены что хотите удалить следующую статью:</h3>
+<h4>{{ article.title }}</h4>
+
+<form method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" name="form">
+    {% csrf_token %}
+  <div class="form-group">
+    <button class="btn btn-outline-info u-btn-round u-grey-90 u-hover-grey-70 u-radius-50 u-btn-1" type="submit">Удалить</button>
+  </div>
+</form>
+<a href="{% url 'my_articles' %}" class="u-border-none u-btn u-btn-round u-button-style u-grey-90 u-hover-grey-75 u-radius-50 u-btn-1">Отмена</a>
+{% endblock body %}

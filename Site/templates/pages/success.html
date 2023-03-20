@@ -1,0 +1,19 @@
+{% extends "pages/base.html" %}
+{%load static%}
+
+{% block title %}
+    <title>Успех</title>
+    <link rel="stylesheet" href="{% static 'nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'Авторизация.css'%}" media="screen">
+{% endblock title %}
+
+{% block metacontent %}
+    <meta property="og:title" content="Выход">
+{% endblock metacontent %}
+
+{% block body %}
+<h2>Ваша статья успешно обновлена.</h2>
+    <div class="border-top pt-3">
+            <a href="{% url 'my_articles' %}">Вернусться к статьям</a>
+    </div>
+{% endblock body %}

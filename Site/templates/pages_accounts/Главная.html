@@ -1,0 +1,28 @@
+{% extends "pages/base.html" %}
+{%load static%}
+{% block title %}
+    <title>Главная</title>
+    <link rel="stylesheet" href="{% static 'nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'Главная.css'%}" media="screen">
+{% endblock title %}
+
+{% block metacontent %}
+    <meta property="og:title" content="Главная">
+{% endblock metacontent %}
+{% block body %}
+    <section class="u-clearfix u-section-1" id="sec-63cc">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text-1">Добро пожаловать, на этом сайте вы можете хранить свои статьи.
+            {% if user.is_authenticated == True %}
+                Вы уже авторизованы.
+            {% else %}
+                Чтобы перейти к работе войдите или зарегистрируйтесь
+            {% endif %}</p>
+          {% if user.is_authenticated == False %}
+        <a href="log_in" class="u-black u-border-none u-btn u-btn-round u-button-style u-hover-grey-70 u-radius-50 u-btn-1">Войти<br>
+        </a>
+        <a href="register" class="u-border-none u-btn u-btn-round u-button-style u-grey-90 u-hover-grey-70 u-radius-50 u-btn-2">Зарегистрироваться</a>
+          {% endif %}
+      </div>
+    </section>
+{% endblock body %}

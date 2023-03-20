@@ -1,0 +1,55 @@
+{% extends "pages/base.html" %}
+{%load static%}
+{% block title %}
+    <title>Мои мероприятия</title>
+    <link rel="stylesheet" href="{% static 'nicepage.css'%}" media="screen">
+    <link rel="stylesheet" href="{% static 'Мои-мероприятия.css'%}" media="screen">
+{% endblock title%}
+
+{% block scriptcontent %}
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+    }</script>
+{% endblock scriptcontent%}
+
+{% block metacontent %} <meta property="og:title" content="Мои мероприятия"> {% endblock metacontent%}
+
+{% block body %}
+    <section class="u-align-center u-clearfix u-section-1" id="sec-ca0b">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <!-- <h1 class="u-text u-text-default u-text-4">{{ event.author }}<br>
+        </h1>-->
+        <a href="event_registration" class="u-border-none u-btn u-btn-round u-button-style u-hover-grey-70 u-radius-50 u-btn-1">Добавить мероприятие</a>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+            </colgroup>
+            <thead class="u-black u-table-header u-table-header-1">
+              <tr style="height: 49px;">
+                <th class="u-border-1 u-border-black u-table-cell">Мероприятие</th>
+                <th class="u-border-1 u-border-black u-table-cell">Дата мероприятия</th>
+                <th class="u-border-1 u-border-black u-table-cell">Место проведения&nbsp;</th>
+                <th class="u-border-1 u-border-black u-table-cell">Статья</th>
+              </tr>
+            </thead>
+            {% for event in events %}
+            <tbody class="u-table-body">
+              <tr style="height: 65px;">
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ event.name }}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ event.date }}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ event.place }}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ event.article }}</td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+{% endblock body%}
